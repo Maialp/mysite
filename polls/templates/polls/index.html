@@ -1,8 +1,14 @@
-<h1>The 5 latest questions:</h1>
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+<div class="eight">
+    <h1>The 5 latest questions:</h1>
+  </div>
+
 {% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+        <a href="{% url 'polls:detail' question.id %}"><li>{{ question.question_text }}</li></a>
     {% endfor %}
     </ul>
 {% else %}
